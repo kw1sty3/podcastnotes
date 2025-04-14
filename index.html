@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Notes - Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Podcast Notes</h1>
+            <p>Удобное составление заметок для вашего подкаста</p>
+        </header>
+        
+        <main>
+            <button id="new-podcast" class="btn-primary">+ Новый подкаст</button>
+            
+            <div class="podcasts-grid" id="podcasts-list">
+                <!-- Здесь будут отображаться сохраненные подкасты -->
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('new-podcast').addEventListener('click', () => {
+            window.location.href = 'editor.html?new=true';
+        });
+
+        // Загрузка сохраненных подкастов
+        document.addEventListener('DOMContentLoaded', () => {
+            const podcasts = JSON.parse(localStorage.getItem('podcasts')) || [];
+            const podcastsList = document.getElementById('podcasts-list');
+            
+            podcasts.forEach((podcast, index) => {
+                const podcastElement = document.createElement('div');
+                podcastElement.className = 'podcast-card';
+                podcastElement.innerHTML = `
+                    <h3>${podcast.title || 'Без названия'}</h3>
+                    <p>${podcast.topics ? podcast.topics.length : 0} тем</p>
+                    <div class="actions">
+                        <button class="btn-edit" data-id="${index}">Редактировать</button>
+                        <button class="btn-play" data-id="${index}">Запустить</button>
+                    </div>
+                `;
+                podcastsList.appendChild(podcastElement);
+            });
+
+            // Обработчики для кнопок
+            document.querySelectorAll('.btn-edit').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    window.location.href = `editor.html?id=${e.target.dataset.id}`;
+                });
+            });
+
+            document.querySelectorAll('.btn-play').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    window.location.href = `podcast.html?id=${e.target.dataset.id}`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

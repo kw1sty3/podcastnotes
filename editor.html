@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Notes - Редактор</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Редактор подкаста</h1>
+            <div class="editor-actions">
+                <button id="save-podcast" class="btn-primary">Сохранить</button>
+                <button id="back-to-home" class="btn-primary">На главную</button>
+            </div>
+        </header>
+        
+        <main class="editor-main">
+            <div class="podcast-title">
+                <input type="text" id="podcast-title" placeholder="Название подкаста">
+            </div>
+            
+            <div class="editor-container">
+                <div class="topics-list" id="topics-list">
+                    <!-- Темы будут добавляться здесь -->
+                </div>
+                
+                <div class="editor-tools">
+                    <button id="add-topic" class="btn-primary">+ Добавить тему</button>
+                    <button id="add-question" class="btn-primary" disabled>+ Добавить вопрос</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/editor.js"></script>
+</body>
+</html>

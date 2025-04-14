@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Notes - Режим подкаста</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="podcast-mode">
+    <div class="podcast-container">
+        <div class="cards-grid">
+            <!-- Левая карточка (предыдущий вопрос) -->
+            <div class="card card-left" id="card-prev-question"></div>
+            
+            <!-- Верхняя карточка (предыдущая тема) -->
+            <div class="card card-top" id="card-prev-topic"></div>
+            
+            <!-- Центральная карточка (текущий элемент) -->
+            <div class="card card-center" id="card-current"></div>
+            
+            <!-- Правая карточка (следующий вопрос) -->
+            <div class="card card-right" id="card-next-question"></div>
+            
+            <!-- Нижняя карточка (следующая тема) -->
+            <div class="card card-bottom" id="card-next-topic"></div>
+        </div>
+        
+        <div class="podcast-nav">
+            <div class="nav-info">
+                <span id="nav-prev-topic">↑ Предыдущая тема (W)</span>
+                <span id="nav-prev-question">← Пред. вопрос (A)</span>
+                <span id="current-position">1/10</span>
+                <span id="nav-next-question">След. вопрос (D) →</span>
+                <span id="nav-next-topic">След. тема (S) ↓</span>
+            </div>
+            <button id="exit-podcast" class="btn-secondary">Выйти (ESC)</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/podcast.js"></script>
+</body>
+</html>
